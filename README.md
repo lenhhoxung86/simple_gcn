@@ -12,10 +12,13 @@ However, multi-layer GCN doesn't seem to improve the performance of this archite
 
 ## How to run
 To train a default GCN model using the `cora` dataset: 
-- `python main.py`
+
+`python main.py`
 
 Optionally, you can change dataset, learning rate, the number of training epochs, dropout, weight decay and early stopping constant. For example:
+
 `python main.py --dataset citeseer --learning_rate 0.001`
 
 You can also change the number of hidden layers and their dimensionality:
-- `model = GCN(FLAGS.learning_rate, num_input, num_classes, hidden_dimensions=[128, 64, 16], sparse_input=True, act=tf.nn.relu)`
+
+`model = GCN(FLAGS.learning_rate, num_input, num_classes, hidden_dimensions=[128, 64, 16], sparse_input=True, act=tf.nn.relu)`
