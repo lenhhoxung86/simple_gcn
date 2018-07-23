@@ -45,19 +45,6 @@ def masked_accuracy(preds, labels, mask):
     accuracy_all *= mask
     return tf.reduce_mean(accuracy_all)
 
-def sparse_dropout(x, keep_prob, noise_shape):
-    """Dropout for sparse tensors."""
-    random_tensor = keep_prob
-    random_tensor += tf.random_uniform(noise_shape)
-    dropout_mask = tf.cast(tf.floor(random_tensor), dtype=tf.bool)
-    pre_out = tf.sparse_retain(x, dropout_mask)
-    return pre_out * (1./keep_prob)
-
-def glorot(shape, name=None):
-    """Glorot & Bengio (AISTATS 2010) init."""
-    init_range = np.sqrt(6.0/(shape[0]+shape[1]))
-    initial = tf.random_uniform(shape, minval=-init_range, maxval=init_range, dtype=tf.float32)
-    return tf.Variable(initial, name=name)
 
 ############################################## GCN class ##################################################
 

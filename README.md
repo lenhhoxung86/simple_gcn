@@ -21,4 +21,10 @@ Optionally, you can change dataset, learning rate, the number of training epochs
 
 You can also change the number of hidden layers and their dimensionality:
 
-`model = GCN(FLAGS.learning_rate, num_input, num_classes, hidden_dimensions=[128, 64, 16], sparse_input=True, act=tf.nn.relu)`
+    model = GCN(
+        FLAGS.learning_rate, 
+        num_input, 
+        num_classes, 
+        hidden_dimensions=[128, 64, 16], 
+        sparse_input=True, 
+        act=tf.nn.relu)
