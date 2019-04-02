@@ -27,6 +27,11 @@ flags.DEFINE_float('dropout', 0.3, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('weight_decay', 5e-4, 'Weight for L2 loss on embedding matrix.')
 flags.DEFINE_integer('early_stopping', 10, 'Tolerance for early stopping (# of epochs).')
 
+# print parameters
+flagkey_values = FLAGS.flag_values_dict()
+for k in flagkey_values:
+    print('{}: {}'.format(k, getattr(FLAGS, k)))
+
 def main():
     # Load data
     adj, features, y_train, y_val, y_test, train_mask, val_mask, test_mask = load_data(FLAGS.dataset)
