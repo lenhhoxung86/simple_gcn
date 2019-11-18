@@ -26,6 +26,7 @@ flags.DEFINE_integer('epochs', 200, 'Number of epochs to train.')
 flags.DEFINE_float('dropout', 0.3, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('weight_decay', 5e-4, 'Weight for L2 loss on embedding matrix.')
 flags.DEFINE_integer('early_stopping', 10, 'Tolerance for early stopping (# of epochs).')
+flags.DEFINE_string('hidden_dimensions', '64', 'sizes of hidden layers')
 
 # print parameters
 flagkey_values = FLAGS.flag_values_dict()
@@ -42,12 +43,13 @@ def main():
     # normalize the adjacency matrix
     adj_hat = preprocess_adj(adj)
 
-    # import pdb;pdb.set_trace()
+    hidden_sizes = FLAGS.hidden_dimensions.split(',')
+    hidden_sizes = [int(x.strip()) for x in hidden_sizes]
 
     # create a GCN model object
     num_classes = y_train.shape[1]
     num_examples, num_input = features[2]
-    model = GCN(FLAGS.learning_rate, num_input, num_classes, hidden_dimensions=[64], sparse_input=True, act=tf.nn.relu)
+    model = GCN(FLAGS.learning_rate, num_input, num_classes, hidden_dimensions=hidden_sizes, sparse_input=True, act=tf.nn.relu)
 
     # Initialize session
     sess = tf.Session()

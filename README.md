@@ -8,7 +8,6 @@ According to my experiments, multi-layer GCN doesn't seem to improve the classif
 ## Requirements
 - python 3+
 - tensorflow 1.6+
-- networkx 2.1+
 
 ## How to run
 To train a default GCN model using the `cora` dataset: 
@@ -21,10 +20,4 @@ Optionally, you can change dataset, learning rate, the number of training epochs
 
 You can also change the number of hidden layers and their dimensionality:
 
-    model = GCN(
-        FLAGS.learning_rate, 
-        num_input, 
-        num_classes, 
-        hidden_dimensions=[128, 64, 16], 
-        sparse_input=True, 
-        act=tf.nn.relu)
+`python main.py --hidden_dimensions=64,64`

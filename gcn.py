@@ -1,6 +1,6 @@
 '''
 This is the script for building the GCN model. 
-The code is based on https://github.com/tkipf/gcn and  and https://github.com/dennybritz/cnn-text-classification-tf.
+The code is based on https://github.com/tkipf/gcn and and https://github.com/dennybritz/cnn-text-classification-tf.
 '''
 
 
