@@ -3,7 +3,7 @@ This is the re-implementation of the GCN model, which is from the paper
 `SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NEURAL NETWORK` by Thomas N. Kipf et al.
 This implementation is a simplified version adapted from https://github.com/tkipf/gcn by removing dense and Chebyshev models.
 Moreover, it supports multiple graph convolutional layers just by setting parameters of `GCN` object.
-According to my experiments, multi-layer GCN doesn't seem to improve the classification performance.
+According to my experiments, GCN with more than two layers doesn't seem to improve the classification performance.
 
 ## Requirements
 - python 3+
